@@ -11,14 +11,14 @@ import com.niit.oracle.model.Forum;
 public interface ForumDAO {
 
 public List<Forum> list();
-public Forum getid(int i);
+public Forum getid(int id);
 public Forum getname(String name);
-public boolean add(Forum b);
-public boolean update(Forum b);
-public boolean delete(Forum b);
-public boolean approve(int i);
-public boolean reject(int i);
-public boolean likes(int i);
-public boolean dislikes(int i);
+public boolean add(Forum forum);
+public boolean update(Forum forum);
+public boolean delete(Forum forum);
+public boolean approve(int id);
+public boolean reject(int id);
+public boolean likes(int id);
+public boolean dislikes(int id);
 
 }

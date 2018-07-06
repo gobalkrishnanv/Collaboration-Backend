@@ -47,7 +47,7 @@ public class ApplicationContext
 	   public DataSource dataSource() {
 	      DriverManagerDataSource dataSource = new DriverManagerDataSource();
 	      dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-	      dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
+	      dataSource.setUrl("jdbc:oracle:thin:@CHN-NH3-SLT20.NIITEDUCATION.COM:1521:XE");
 	     dataSource.setUsername("KNOWLEDGE");
 	      dataSource.setPassword("123");
 	 

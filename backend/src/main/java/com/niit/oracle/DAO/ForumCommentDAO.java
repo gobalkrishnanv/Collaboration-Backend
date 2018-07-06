@@ -10,10 +10,10 @@ import com.niit.oracle.model.ForumComment;
 public interface ForumCommentDAO {
 
 public List<ForumComment> list();
-public ForumComment getid(int i);
+public ForumComment getid(int id);
 public ForumComment getname(String name);
-public boolean add(ForumComment b);
-public boolean update(ForumComment b);
-public boolean delete(ForumComment b);
+public boolean add(ForumComment forumcomment);
+public boolean update(ForumComment forumcomment);
+public boolean delete(ForumComment forumcomment);
 
 }

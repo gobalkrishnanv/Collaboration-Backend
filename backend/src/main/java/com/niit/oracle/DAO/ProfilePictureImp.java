@@ -14,37 +14,37 @@ import com.niit.oracle.model.ProfilePicture;
 @Transactional
 public class ProfilePictureImp implements ProfilePictureDAO{
 @Autowired
-SessionFactory s;
+SessionFactory sessionFactory; 
 	public List<ProfilePicture> list() {
 		// TODO Auto-generated method stub
-		return s.getCurrentSession().createCriteria(ProfilePicture.class).list();
+		return sessionFactory.getCurrentSession().createCriteria(ProfilePicture.class).list();
 	}
 
 	public ProfilePicture getid(int i) {
 		// TODO Auto-generated method stub
-		return s.getCurrentSession().get(ProfilePicture.class, i);
+		return sessionFactory.getCurrentSession().get(ProfilePicture.class, i);
 	}
 
 	public ProfilePicture getname(String name) {
 		// TODO Auto-generated method stub
-		return (ProfilePicture) s.getCurrentSession().createCriteria(ProfilePicture.class).add(Restrictions.eqOrIsNull("loginname", name));
+		return (ProfilePicture) sessionFactory.getCurrentSession().createCriteria(ProfilePicture.class).add(Restrictions.eqOrIsNull("loginname", name));
 	}
 
 	public boolean add(ProfilePicture b) {
 		// TODO Auto-generated method stub
-		s.getCurrentSession().save(b);
+		sessionFactory.getCurrentSession().save(b);
 		return true;
 	}
 
 	public boolean update(ProfilePicture b) {
 		// TODO Auto-generated method stub
-		s.getCurrentSession().update(b);
+		sessionFactory.getCurrentSession().update(b);
 		return true;
 	}
 
 	public boolean delete(ProfilePicture b) {
 		// TODO Auto-generated method stub
-		s.getCurrentSession().detach(b);
+		sessionFactory.getCurrentSession().detach(b);
 		return true;
 	}
 

@@ -18,37 +18,37 @@ import com.niit.oracle.model.Forum;
 
 public class ForumImp implements ForumDAO {
 @Autowired
-SessionFactory s;
+SessionFactory sessionFactory; 
 	public List<Forum> list() {
 		// TODO Auto-generated method stub
-		return s.getCurrentSession().createCriteria(Forum.class).list();
+		return sessionFactory.getCurrentSession().createCriteria(Forum.class).list();
 	}
 
 	public Forum getid(int i) {
 		// TODO Auto-generated method stub
-		return s.getCurrentSession().get(Forum.class, i);
+		return sessionFactory.getCurrentSession().get(Forum.class, i);
 	}
 
 	public Forum getname(String name) {
 		// TODO Auto-generated method stub
-		return (Forum) s.getCurrentSession().createCriteria(Forum.class).add(Restrictions.eqOrIsNull("forumname", name)).uniqueResult();
+		return (Forum) sessionFactory.getCurrentSession().createCriteria(Forum.class).add(Restrictions.eqOrIsNull("forumname", name)).uniqueResult();
 	}
 
 	public boolean add(Forum b) {
 		// TODO Auto-generated method stub
-		s.getCurrentSession().save(b);
+		sessionFactory.getCurrentSession().save(b);
 		return true;
 	}
 
 	public boolean update(Forum b) {
 		// TODO Auto-generated method stub
-		s.getCurrentSession().update(b);
+		sessionFactory.getCurrentSession().update(b);
 		return true;
 	}
 
 	public boolean delete(Forum b) {
 		// TODO Auto-generated method stub
-		s.getCurrentSession().delete(b);
+		sessionFactory.getCurrentSession().delete(b);
 		return true;
 	}
 
@@ -57,7 +57,7 @@ SessionFactory s;
 		// TODO Auto-generated method stub
 		Forum b=this.getid(i);
 		b.setStatus("A");
-		this.s.getCurrentSession().update(b);
+		this.sessionFactory.getCurrentSession().update(b);
 
 		return true;
 	}
@@ -66,7 +66,7 @@ SessionFactory s;
 		// TODO Auto-generated method stub
 		Forum b=this.getid(i);
 		b.setStatus("NA");
-		this.s.getCurrentSession().update(b);
+		this.sessionFactory.getCurrentSession().update(b);
 
 		return true;
 	}
@@ -76,7 +76,7 @@ SessionFactory s;
 		Forum b=this.getid(i);
 		
 		b.setLikes(b.getLikes()+1);
-		this.s.getCurrentSession().update(b);
+		this.sessionFactory.getCurrentSession().update(b);
 
 		return true;
 	}
@@ -85,7 +85,7 @@ SessionFactory s;
 		// TODO Auto-generated method stub
 		Forum b=this.getid(i);
         b.setDislikes(b.getDislikes()+1);
-		this.s.getCurrentSession().update(b);
+		this.sessionFactory.getCurrentSession().update(b);
 
 		return true;
 	}

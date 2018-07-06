@@ -11,11 +11,11 @@ public interface JobDetailDAO {
 
 
 public List<JobDetail> list();
-public JobDetail getid(int i);
+public JobDetail getid(int id);
 public JobDetail getname(String name);
-public boolean add(JobDetail b);
-public boolean update(JobDetail b);
-public boolean delete(JobDetail b);
+public boolean add(JobDetail job);
+public boolean update(JobDetail job);
+public boolean delete(JobDetail job);
 
 
 

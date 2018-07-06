@@ -8,9 +8,9 @@ import com.niit.oracle.model.BlogComment;
 @Service
 public interface BlogCommentDAO {
 public List<BlogComment> list();
-public BlogComment getid(int i);
+public BlogComment getid(int id);
 public BlogComment getname(String name);
-public boolean add(BlogComment b);
-public boolean update(BlogComment b);
-public boolean delete(BlogComment b);
+public boolean add(BlogComment blogcomment);
+public boolean update(BlogComment blogcomment);
+public boolean delete(BlogComment blogcomment);
 }

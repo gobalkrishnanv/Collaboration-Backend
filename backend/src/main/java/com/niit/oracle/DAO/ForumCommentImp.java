@@ -14,37 +14,37 @@ import com.niit.oracle.model.ForumComment;
 @Transactional
 public class ForumCommentImp implements ForumCommentDAO{
 @Autowired
-SessionFactory s;
+SessionFactory sessionFactory; 
 	public List<ForumComment> list() {
 		// TODO Auto-generated method stub
-		return s.getCurrentSession().createCriteria(ForumComment.class).list();
+		return sessionFactory.getCurrentSession().createCriteria(ForumComment.class).list();
 	}
 
 	public ForumComment getid(int i) {
 		// TODO Auto-generated method stub
-		return s.getCurrentSession().get(ForumComment.class,i);
+		return sessionFactory.getCurrentSession().get(ForumComment.class,i);
 	}
 
 	public ForumComment getname(String name) {
 		// TODO Auto-generated method stub
-		return (ForumComment) s.getCurrentSession().createCriteria(ForumComment.class).add(Restrictions.eqOrIsNull("loginname", name)).uniqueResult();
+		return (ForumComment) sessionFactory.getCurrentSession().createCriteria(ForumComment.class).add(Restrictions.eqOrIsNull("loginname", name)).uniqueResult();
 	}
 
 	public boolean add(ForumComment b) {
 		// TODO Auto-generated method stub
-		s.getCurrentSession().save(b);
+		sessionFactory.getCurrentSession().save(b);
 		return true;
 	}
 
 	public boolean update(ForumComment b) {
 		// TODO Auto-generated method stub
-		s.getCurrentSession().update(b);
+		sessionFactory.getCurrentSession().update(b);
 		return true;
 	}
 
 	public boolean delete(ForumComment b) {
 		// TODO Auto-generated method stub
-		s.getCurrentSession().delete(b);
+		sessionFactory.getCurrentSession().delete(b);
 		return true;
 	}
 

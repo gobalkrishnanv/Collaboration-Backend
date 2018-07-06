@@ -17,33 +17,33 @@ import com.niit.oracle.model.BlogComment;
 @Transactional
 public class BlogImp implements BlogDAO {
 @Autowired
-SessionFactory b;
+SessionFactory sessionFactory; 
 	public List<Blog> list() {
 		// TODO Auto-generated method stub
-		return b.getCurrentSession().createCriteria(Blog.class).list();
+		return sessionFactory.getCurrentSession().createCriteria(Blog.class).list();
 }
 
 	public Blog getid(int id) {
 		// TODO Auto-generated method stub
-		return b.getCurrentSession().get(Blog.class, id);
+		return sessionFactory.getCurrentSession().get(Blog.class, id);
 	}
 
 	public boolean add(Blog b) {
 		// TODO Auto-generated method stub
-		this.b.getCurrentSession().save(b);
+		this.sessionFactory.getCurrentSession().save(b);
 		
 		return true;
 	}
 
 	public boolean delete(Blog b) {
-		this.b.getCurrentSession().delete(b);
+		this.sessionFactory.getCurrentSession().delete(b);
 		// TODO Auto-generated method stub
 		return true;
 	}
 
 	public boolean update(Blog b) {
 		// TODO Auto-generated method stub
-		this.b.getCurrentSession().update(b);
+		this.sessionFactory.getCurrentSession().update(b);
 		return true;
 	}
 
@@ -53,7 +53,7 @@ SessionFactory b;
 		// TODO Auto-generated method stub
 		Blog b=this.getid(i);
 		b.setStatus("A");
-		this.b.getCurrentSession().update(b);
+		this.sessionFactory.getCurrentSession().update(b);
 
 		return true;
 	}
@@ -62,7 +62,7 @@ SessionFactory b;
 		// TODO Auto-generated method stub
 		Blog b=this.getid(i);
 		b.setStatus("NA");
-		this.b.getCurrentSession().update(b);
+		this.sessionFactory.getCurrentSession().update(b);
 
 		return true;
 	}
@@ -72,7 +72,7 @@ SessionFactory b;
 		Blog b=this.getid(i);
 		
 		b.setLikes(b.getLikes()+1);
-		this.b.getCurrentSession().update(b);
+		this.sessionFactory.getCurrentSession().update(b);
 
 		return true;
 	}
@@ -81,14 +81,14 @@ SessionFactory b;
 		// TODO Auto-generated method stub
 		Blog b=this.getid(i);
         b.setDislikes(b.getDislikes()+1);
-		this.b.getCurrentSession().update(b);
+		this.sessionFactory.getCurrentSession().update(b);
 
 		return true;
 	}
 
 	public Blog getname(String name) {
 		// TODO Auto-generated method stub
-		return (Blog) b.getCurrentSession().createCriteria(Blog.class).add(Restrictions.eqOrIsNull("blogname", name)).uniqueResult();
+		return (Blog) sessionFactory.getCurrentSession().createCriteria(Blog.class).add(Restrictions.eqOrIsNull("blogname", name)).uniqueResult();
 	}
 
 }

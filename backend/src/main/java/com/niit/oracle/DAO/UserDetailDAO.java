@@ -11,13 +11,13 @@ public interface UserDetailDAO {
 
 	 
 public List<UserDetail> list();
-public UserDetail getid(int i);
+public UserDetail getid(int id);
 public UserDetail getname(String name);
-public UserDetail getloginname(String name);
+public UserDetail getloginname(String loginname);
 
-public boolean add(UserDetail b);
-public boolean update(UserDetail b);
-public boolean delete(UserDetail b);
+public boolean add(UserDetail userdetail);
+public boolean update(UserDetail userdetail);
+public boolean delete(UserDetail userdetail);
 
 
 

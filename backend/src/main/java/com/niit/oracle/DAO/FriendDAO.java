@@ -11,11 +11,14 @@ public interface FriendDAO {
 
  
 public List<Friend> list();
-public Friend getid(int i);
+public Friend getid(int id);
 public Friend getname(String name);
-public boolean add(Friend b);
-public boolean update(Friend b);
-public boolean delete(Friend b);
+public Friend getfriendloginname(String friendloginname);
+public boolean add(Friend friend);
+public boolean update(Friend friend);
+public boolean delete(Friend friend);
+public boolean aspectRequest(int id);
+
 
 
 }

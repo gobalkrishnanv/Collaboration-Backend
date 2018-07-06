@@ -10,11 +10,11 @@ public interface ProfilePictureDAO {
  
 
 public List<ProfilePicture> list();
-public ProfilePicture getid(int i);
+public ProfilePicture getid(int id);
 public ProfilePicture getname(String name);
-public boolean add(ProfilePicture b);
-public boolean update(ProfilePicture b);
-public boolean delete(ProfilePicture b);
+public boolean add(ProfilePicture profilepicture);
+public boolean update(ProfilePicture profilepicture);
+public boolean delete(ProfilePicture profilepicture);
 
 
 }

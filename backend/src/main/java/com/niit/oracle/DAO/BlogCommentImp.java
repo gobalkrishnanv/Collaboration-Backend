@@ -17,37 +17,37 @@ import com.niit.oracle.model.BlogComment;
 @Transactional
 public class BlogCommentImp implements BlogCommentDAO {
 @Autowired
-SessionFactory s;
+SessionFactory sessionFactory;
 	public List<BlogComment> list() {
 		// TODO Auto-generated method stub
-		return s.getCurrentSession().createCriteria(BlogComment.class).list();
+		return sessionFactory.getCurrentSession().createCriteria(BlogComment.class).list();
 	}
 
 	public BlogComment getid(int i) {
 		// TODO Auto-generated method stub
-		return s.getCurrentSession().get(BlogComment.class, i);
+		return sessionFactory.getCurrentSession().get(BlogComment.class, i);
 	}
 
 	public BlogComment getname(String name) {
 		// TODO Auto-generated method stub
-		return (BlogComment) s.getCurrentSession().createCriteria(BlogComment.class).add(Restrictions.eqOrIsNull("loginname", name)).uniqueResult();
+		return (BlogComment) sessionFactory.getCurrentSession().createCriteria(BlogComment.class).add(Restrictions.eqOrIsNull("loginname", name)).uniqueResult();
 	}
 
 	public boolean add(BlogComment b) {
 		// TODO Auto-generated method stub
-		s.getCurrentSession().save(b);
+		sessionFactory.getCurrentSession().save(b);
 		return true;
 	}
 
 	public boolean update(BlogComment b) {
 		// TODO Auto-generated method stub
-		s.getCurrentSession().update(b);
+		sessionFactory.getCurrentSession().update(b);
 		return true;
 	}
 
 	public boolean delete(BlogComment b) {
 		// TODO Auto-generated method stub
-		s.getCurrentSession().delete(b);
+		sessionFactory.getCurrentSession().delete(b);
 		return true;
 	}
 

@@ -11,11 +11,11 @@ public interface BlogDAO {
 public List<Blog> list();
 public Blog getid(int id);
 public Blog getname(String name);
-public boolean add(Blog b);
-public boolean delete(Blog b);
-public boolean update(Blog b);
-public boolean approve(int i);
-public boolean reject(int i);
-public boolean likes(int i);
-public boolean dislikes(int i);
+public boolean add(Blog blog);
+public boolean delete(Blog blog);
+public boolean update(Blog blog);
+public boolean approve(int id);
+public boolean reject(int id);
+public boolean likes(int id);
+public boolean dislikes(int id);
 }
