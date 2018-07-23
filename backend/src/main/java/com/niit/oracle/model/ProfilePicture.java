@@ -18,8 +18,7 @@ public class ProfilePicture {
 private int id;
 @NonNull
 private String loginname;
-@NonNull
-private Blob image;
+
 @NonNull
 private byte[] imagestream;
 public String getLoginname() {
@@ -30,13 +29,6 @@ public void setLoginname(String loginname) {
 	this.loginname = loginname;
 }
 
-public Blob getImage() {
-	return image;
-}
-
-public void setImage(Blob image) {
-	this.image = image;
-}
 
 public int getId() {
 	return id;
@@ -55,7 +47,7 @@ public void setImagestream(byte[] imagestream) {
 }
 public String toString() {
 	StringBuilder s=new StringBuilder();
-	s.append("[Profile="+id+":\n Login Name="+loginname+":\n Image="+image+":\n Image Stream="+imagestream+"]");
+	s.append("[Profile="+id+":\n Login Name="+loginname+":\n Image Stream="+imagestream+"]");
     return s.toString();
  }	
 }

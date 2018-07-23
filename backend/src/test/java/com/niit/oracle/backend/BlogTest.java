@@ -22,7 +22,7 @@ import com.niit.oracle.model.BlogComment;
 public class BlogTest {
 @Autowired
 BlogDAO blogdao;
-Blog blog; 
+Blog blog,b1; 
 	@Test
 	public void addblog() {
        blog=new Blog();
@@ -35,7 +35,21 @@ Blog blog;
       blog.setDislikes(1);
       blog.setStatus("NA");
       assertEquals(true, blogdao.add(blog)); 
+	
+	
+	
+     
+      
+	
 	} 
+	
+	
+	@Test
+	public void findbyname() {
+		
+		Blog blog=blogdao.getname("gobal");
+		System.out.println(blog);
+	}
 	
 	@Ignore
 	@Test

@@ -89,6 +89,9 @@ SessionFactory sessionFactory;
 	public Blog getname(String name) {
 		// TODO Auto-generated method stub
 		return (Blog) sessionFactory.getCurrentSession().createCriteria(Blog.class).add(Restrictions.eqOrIsNull("blogname", name)).uniqueResult();
+		//return (Blog) sessionFactory.getCurrentSession().get(Blog.class,"blogname");
+		
+	
 	}
 
 }
