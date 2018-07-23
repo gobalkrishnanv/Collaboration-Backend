@@ -19,6 +19,7 @@ private int jobid;
 @NonNull private String role;
 @NonNull private String response;
 @NonNull private String company;
+
 @NonNull private Date lastdate;
 @NonNull private String location;
 @NonNull private int ctc;

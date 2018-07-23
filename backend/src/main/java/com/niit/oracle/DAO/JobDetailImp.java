@@ -48,4 +48,22 @@ SessionFactory sessionFactory;
 		return true;
 	}
 
+	public boolean apply(int id) {
+		// TODO Auto-generated method stub
+		JobDetail job=this.getid(id);
+		job.setResponse("A");
+		sessionFactory.getCurrentSession().update(job);
+		
+		return true;
+	}
+
+	public boolean reject(int id) {
+		// TODO Auto-generated method stub
+		JobDetail job=this.getid(id);
+		job.setResponse("NA");
+		sessionFactory.getCurrentSession().update(job);
+		
+		return true;
+	}
+
 }

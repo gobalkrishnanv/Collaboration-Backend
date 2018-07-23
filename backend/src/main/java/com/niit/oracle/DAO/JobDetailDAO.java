@@ -16,7 +16,8 @@ public JobDetail getname(String name);
 public boolean add(JobDetail job);
 public boolean update(JobDetail job);
 public boolean delete(JobDetail job);
-
+public boolean apply(int id);
+public boolean reject(int id);
 
 
 }
