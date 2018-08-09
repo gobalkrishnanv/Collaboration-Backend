@@ -16,6 +16,7 @@ public class ForumComment {
 @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="forumcommentidseq")
 private int commentid;
 @NonNull private int forumid;
+@NonNull private String forumname;
 @NonNull private String discussiontext;
 @NonNull private String loginname;
 @NonNull private Date discussionDate;
@@ -54,4 +55,10 @@ public String toString() {
 	s.append("["+"Forum Comment Id="+commentid+": \n"+"Forum Id="+forumid+": \n"+"Discussion Text="+discussiontext+": \n"+"Login Name"+loginname+": \n"+"Discussion Date="+discussionDate+"]");
     return s.toString();
  }
+public String getForumname() {
+	return forumname;
+}
+public void setForumname(String forumname) {
+	this.forumname = forumname;
+}
 }

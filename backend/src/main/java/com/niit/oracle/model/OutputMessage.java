@@ -10,7 +10,7 @@ public class OutputMessage extends Message
 		// TODO Auto-generated constructor stub
 		super(message.getMessage(), message.getId());
 		
-		setTime(time);
+		this.time=time;
 	}
 
 	public Date getTime() {

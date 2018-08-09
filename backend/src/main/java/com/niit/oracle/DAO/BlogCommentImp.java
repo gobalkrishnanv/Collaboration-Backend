@@ -23,6 +23,23 @@ SessionFactory sessionFactory;
 		return sessionFactory.getCurrentSession().createCriteria(BlogComment.class).list();
 	}
 
+	
+	public List<BlogComment> list(String loginname) {
+		// TODO Auto-generated method stub
+		return sessionFactory.getCurrentSession().createCriteria(BlogComment.class).add(Restrictions.eqOrIsNull("loginname", loginname)).list();
+	}
+
+	public List<BlogComment> bloglist(String blogname) {
+		// TODO Auto-generated method stub
+		return sessionFactory.getCurrentSession().createCriteria(BlogComment.class).add(Restrictions.eqOrIsNull("blogname", blogname)).list();
+	}
+
+	public List<BlogComment> blogidlist(int blogid) {
+		// TODO Auto-generated method stub
+		return sessionFactory.getCurrentSession().createCriteria(BlogComment.class).add(Restrictions.eqOrIsNull("blogid", blogid)).list();
+	}
+
+	
 	public BlogComment getid(int i) {
 		// TODO Auto-generated method stub
 		return sessionFactory.getCurrentSession().get(BlogComment.class, i);
@@ -51,4 +68,5 @@ SessionFactory sessionFactory;
 		return true;
 	}
 
+	
 }

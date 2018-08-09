@@ -23,7 +23,12 @@ SessionFactory sessionFactory;
 		// TODO Auto-generated method stub
 		return sessionFactory.getCurrentSession().createCriteria(Forum.class).list();
 	}
-
+   
+	public List<Forum> list(String name) {
+		// TODO Auto-generated method stub
+		return  sessionFactory.getCurrentSession().createCriteria(Forum.class).add(Restrictions.eqOrIsNull("loginname", name)).list();
+	}
+	
 	public Forum getid(int i) {
 		// TODO Auto-generated method stub
 		return sessionFactory.getCurrentSession().get(Forum.class, i);
@@ -89,6 +94,8 @@ SessionFactory sessionFactory;
 
 		return true;
 	}
+
+	
 
 	
 

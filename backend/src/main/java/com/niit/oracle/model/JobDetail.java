@@ -15,6 +15,7 @@ public class JobDetail {
 @SequenceGenerator(name="jobidseq",sequenceName="jobidseq")
 @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="jobidseq")
 private int jobid;
+@NonNull private String loginname;
 @NonNull private String designation;
 @NonNull private String role;
 @NonNull private String response;
@@ -84,5 +85,11 @@ public String toString() {
 	s.append("[Job Id="+jobid+": \n Designation="+designation+": \n Role="+role+": \n Response="+response+": \n Company="+company+": \n Last Date="+lastdate+": \n Location="+location+": \n CTC="+ctc+": \n Skill="+skill+"]");
     return s.toString();
  }
+public String getLoginname() {
+	return loginname;
+}
+public void setLoginname(String loginname) {
+	this.loginname = loginname;
+}
 
 }

@@ -36,7 +36,9 @@ public class ApplicationContext
 	   {
 		Properties properties=new Properties();
 		properties.setProperty("hibernate.show_sql","true");
-		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
+		//properties.setProperty("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
+		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
+
 		properties.setProperty("hibernate.hbm2ddl.auto","create");
 		
 		return properties;
@@ -46,11 +48,17 @@ public class ApplicationContext
 	
 	   public DataSource dataSource() {
 	      DriverManagerDataSource dataSource = new DriverManagerDataSource();
-	      dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+	     /* dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
 	      dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
 	     dataSource.setUsername("KNOWLEDGE");
 	      dataSource.setPassword("123");
+	   */
+	      dataSource.setDriverClassName("org.h2.Driver");
+	      dataSource.setUrl("jdbc:h2:tcp://localhost/~/test");
+	      dataSource.setUsername("sa");
+	      dataSource.setPassword("");
 	 
+	      
 	      return dataSource;
 	   }
 	 

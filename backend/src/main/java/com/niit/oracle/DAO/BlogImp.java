@@ -23,6 +23,13 @@ SessionFactory sessionFactory;
 		return sessionFactory.getCurrentSession().createCriteria(Blog.class).list();
 }
 
+	public List<Blog> list(String name) {
+		// TODO Auto-generated method stub
+		return sessionFactory.getCurrentSession().createCriteria(Blog.class).add(Restrictions.eqOrIsNull("loginname", name)).list();
+	}
+
+	
+	
 	public Blog getid(int id) {
 		// TODO Auto-generated method stub
 		return sessionFactory.getCurrentSession().get(Blog.class, id);
@@ -93,5 +100,6 @@ SessionFactory sessionFactory;
 		
 	
 	}
+
 
 }

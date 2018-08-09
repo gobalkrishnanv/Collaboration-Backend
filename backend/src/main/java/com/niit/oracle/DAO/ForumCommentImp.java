@@ -20,6 +20,24 @@ SessionFactory sessionFactory;
 		return sessionFactory.getCurrentSession().createCriteria(ForumComment.class).list();
 	}
 
+	
+	public List<ForumComment> list(String loginname) {
+		// TODO Auto-generated method stub
+		return sessionFactory.getCurrentSession().createCriteria(ForumComment.class).add(Restrictions.eqOrIsNull("loginname",loginname)).list();
+
+	}
+
+	public List<ForumComment> forumlist(String forumname) {
+		// TODO Auto-generated method stub
+		 return sessionFactory.getCurrentSession().createCriteria(ForumComment.class).add(Restrictions.eqOrIsNull("forumname",forumname)).list();
+	}
+
+	public List<ForumComment> forumidlist(int forumid) {
+		// TODO Auto-generated method stub
+		return sessionFactory.getCurrentSession().createCriteria(ForumComment.class).add(Restrictions.eqOrIsNull("forumid",forumid)).list();
+	}
+	
+	
 	public ForumComment getid(int i) {
 		// TODO Auto-generated method stub
 		return sessionFactory.getCurrentSession().get(ForumComment.class,i);
@@ -47,5 +65,7 @@ SessionFactory sessionFactory;
 		sessionFactory.getCurrentSession().delete(b);
 		return true;
 	}
+
+	
 
 }

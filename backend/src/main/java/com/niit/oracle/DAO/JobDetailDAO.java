@@ -11,6 +11,7 @@ public interface JobDetailDAO {
 
 
 public List<JobDetail> list();
+public List<JobDetail> list(String loginname);
 public JobDetail getid(int id);
 public JobDetail getname(String name);
 public boolean add(JobDetail job);

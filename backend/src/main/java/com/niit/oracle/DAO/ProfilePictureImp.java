@@ -1,10 +1,22 @@
 package com.niit.oracle.DAO;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
+import org.hibernate.Criteria;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -20,14 +32,20 @@ SessionFactory sessionFactory;
 		return sessionFactory.getCurrentSession().createCriteria(ProfilePicture.class).list();
 	}
 
+	
+	
+		
+	
+	
+	
 	public ProfilePicture getid(int i) {
 		// TODO Auto-generated method stub
 		return sessionFactory.getCurrentSession().get(ProfilePicture.class, i);
 	}
 
-	public ProfilePicture getname(String name) {
+	public ProfilePicture getname(String loginname) {
 		// TODO Auto-generated method stub
-		return (ProfilePicture) sessionFactory.getCurrentSession().createCriteria(ProfilePicture.class).add(Restrictions.eqOrIsNull("loginname", name));
+		return (ProfilePicture) sessionFactory.getCurrentSession().get(ProfilePicture.class,loginname);
 	}
 
 	public boolean add(ProfilePicture b) {
@@ -47,5 +65,7 @@ SessionFactory sessionFactory;
 		sessionFactory.getCurrentSession().detach(b);
 		return true;
 	}
+
+	
 
 }

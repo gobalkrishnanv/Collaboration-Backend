@@ -9,6 +9,7 @@ import com.niit.oracle.model.Blog;
 
 public interface BlogDAO {
 public List<Blog> list();
+public List<Blog> list(String name);
 public Blog getid(int id);
 public Blog getname(String name);
 public boolean add(Blog blog);

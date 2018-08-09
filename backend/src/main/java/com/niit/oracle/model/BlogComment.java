@@ -19,6 +19,7 @@ public class BlogComment {
 @NonNull private String commenttext;
 @NonNull private String loginname;
 @NonNull private Date commentdate;
+@NonNull private String blogname;
 public int getCommentid() {
 	return commentid;
 }
@@ -54,4 +55,10 @@ public String toString() {
 	s.append("["+"Blog Comment Id="+getCommentid()+": \n"+"Blog id="+getBlogid()+": \n"+"Login Name="+getLoginname()+": \n"+"BlogCommentText="+getCommenttext()+": \n"+"Comment Date="+getCommentdate()+"]");
     return s.toString();
  }
+public String getBlogname() {
+	return blogname;
+}
+public void setBlogname(String blogname) {
+	this.blogname = blogname;
+}
 }

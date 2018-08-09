@@ -20,6 +20,11 @@ SessionFactory sessionFactory;
 		return sessionFactory.getCurrentSession().createCriteria(Friend.class).list();
 	}
 
+	public List<Friend> list(String loginname) {
+		// TODO Auto-generated method stub
+		return sessionFactory.getCurrentSession().createCriteria(Friend.class).add(Restrictions.eqOrIsNull("loginname", loginname)).list();
+	}
+	
 	public Friend getid(int i) {
 		// TODO Auto-generated method stub
 		return sessionFactory.getCurrentSession().get(Friend.class, i);
@@ -57,11 +62,39 @@ SessionFactory sessionFactory;
 	public boolean aspectRequest(int id) {
 		// TODO Auto-generated method stub
 		Friend friend=this.getid(id);
+		
 		friend.setStatus("A");
 		sessionFactory.getCurrentSession().update(friend);
 		return true;
 	}
 
+	
+
+	public boolean rejectRequest(int id) {
+		// TODO Auto-generated method stub
+		Friend friend=this.getid(id);
+		friend.setFriendloginname("");
+		friend.setStatus("");
+		sessionFactory.getCurrentSession().update(friend);
+		return true;
+	}
+
+	public boolean sendRequest(int from, int to) {
+		// TODO Auto-generated method stub
+		Friend f=this.getid(from);
+		Friend t1=this.getid(to);
+		
+		Friend t=new Friend();
+		t.setFriendid(t1.getFriendid());
+		t.setLoginname(t1.getLoginname());
+		t.setFriendloginname(f.getLoginname());
+		t.setStatus("NA");
+		sessionFactory.getCurrentSession().save(t);
+		return true;
+	}
+    
+	
+	
 	
 
 }

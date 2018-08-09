@@ -11,6 +11,7 @@ import com.niit.oracle.model.Forum;
 public interface ForumDAO {
 
 public List<Forum> list();
+public List<Forum> list(String name);
 public Forum getid(int id);
 public Forum getname(String name);
 public boolean add(Forum forum);

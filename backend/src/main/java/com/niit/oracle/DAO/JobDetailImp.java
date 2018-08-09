@@ -20,6 +20,12 @@ SessionFactory sessionFactory;
 		return sessionFactory.getCurrentSession().createCriteria(JobDetail.class).list();
 	}
 
+	public List<JobDetail> list(String loginname) {
+		// TODO Auto-generated method stub
+		return  sessionFactory.getCurrentSession().createCriteria(JobDetail.class).add(Restrictions.eqOrIsNull("loginname", loginname)).list();
+
+	}
+	
 	public JobDetail getid(int i) {
 		// TODO Auto-generated method stub
 		return sessionFactory.getCurrentSession().get(JobDetail.class, i);
@@ -65,5 +71,7 @@ SessionFactory sessionFactory;
 		
 		return true;
 	}
+
+	
 
 }
