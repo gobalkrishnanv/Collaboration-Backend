@@ -1,24 +1,20 @@
 package com.niit.oracle.model;
-
 import java.util.Date;
 
-public class OutputMessage extends Message 
+public class OutputMessage extends Message
 {
-	private Date time;
+private Date time;
 
-	public OutputMessage(Message message, Date date) {
-		// TODO Auto-generated constructor stub
-		super(message.getMessage(), message.getId());
-		
-		this.time=time;
-	}
+public Date getTime() {
+	return time;
+}
 
-	public Date getTime() {
-		return time;
-	}
-
-	public void setTime(Date time) {
-		this.time = time;
-	}
-
+public void setTime(Date time) {
+	this.time = time;
+}
+public OutputMessage(Message message,Date time)
+{
+	super(message.getMessage(),message.getId());
+	this.time=time;
+}
 }
